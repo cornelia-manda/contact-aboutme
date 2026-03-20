@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cornelia Manda | Portfolio | Contact & About</title>
-    <!-- Made by: Cornelia Manda, December 10th, 2025 for GBDA228--> 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
@@ -20,17 +18,24 @@
             margin: 0;
             padding: 0;
             font-family: "Roboto", sans-serif;
-            font-size: 16px; /* base size */
+            font-size: 16px; 
             color: #333;
             background-color: #E0E2DF;
             line-height: 1.6; 
         }
 
+        /* Standard fonts for all headings and links */
         h1, h2, h3, a, th {
             font-family: "Playfair Display", serif;
         }
 
-        /* container for layout */
+        /* --- Link Reset: Prevents default blue/purple colors --- */
+        a, a:visited, a:active {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto; 
@@ -39,13 +44,15 @@
             min-height: 100vh;
         }
 
-        /* nav system  */
+        /* --- Navigation System --- */
         header {
             display: grid;
-            grid-template-columns: 50% 50%;
+            grid-template-columns: 30% 70%;
             align-items: center;
             background-color: #DDBDBE;
             padding: 17px 60px;
+            position: relative;
+            z-index: 1000;
         }
 
         .logo {
@@ -65,28 +72,70 @@
         nav li {
             display: inline-block;
             margin-left: 40px;
+            position: relative; 
+            vertical-align: middle;
         }
 
         nav a {
-            text-decoration: none; 
-            color: #655C5B; 
+            color: #655C5B !important; 
             font-size: 1.1em;
-            transition: color 0.3s ease;
+            display: inline-block;
+            padding: 10px 0;
         }
 
         nav a:hover {
-            color: white; 
+            color: white !important;
+            cursor: pointer;
         }
 
-        nav li:nth-child(3) a {
-            color: white; 
+        /* FIX: Added '>' symbols to only highlight 'Contact' in the main menu, 
+           preventing it from affecting the 4th item in the dropdown */
+        nav > ul > li:nth-child(4) > a {
+            color: white !important; 
         }
 
-        /* main content grid for the two column layout */
-    
+        /* --- Dropdown Logic --- */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DDBDBE; 
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            text-align: left;
+            padding: 10px 0;
+            top: 100%; 
+            left: 0; 
+            margin-top: -5px;
+        }
+
+        .dropdown-content li {
+            display: block;
+            margin: 0;
+        }
+
+        /* Specific style for dropdown items to ensure they stay the brand color */
+        .dropdown-content a, .dropdown-content a:visited {
+            color: #655C5B !important; 
+            padding: 12px 20px;
+            display: block;
+            font-size: 1.1em;
+            font-family: "Playfair Display", serif;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #E0E2DF;
+            color: #816B6E !important;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* main content grid */
         #about-grid {
             display: grid;
-            grid-template-columns: 42% 58%; /* i know it's not 50/50, but i feel theres a little more dimension */
+            grid-template-columns: 42% 58%; 
             gap: 35px; 
             padding: 60px 80px;
             align-items: start; 
@@ -99,8 +148,6 @@
         #about-grid > .image-container {
             order: 1; 
         }
-      
-      /*I did it backwards and was wondering if there was a way to just swap, and there was! I asked claude to explain it to me*/
 
         /* image */
         .image-container {
@@ -109,7 +156,6 @@
             padding-right: 123px; 
         }
 
-        /* style for the split headers */
         .about-title {
             font-size: 5em;
             color: #816B6E;
@@ -120,7 +166,6 @@
             text-align: right;
         }
 
-        /* separate me heading */
         .me-title {
             position: absolute; 
             right: 0; 
@@ -140,10 +185,9 @@
             display: block;
             border-bottom: 10px solid #DDBDBE; 
             box-shadow: 10px 10px 0px rgba(101, 92, 91, 0.2); 
-          /* the box shadow i think added more pazazz to the image, ties everything togethe, researched how to do the shadows where I used throughout, quite life changing */
         }
 
-        /* tect right column */
+        /* text column */
         .text-container {
             padding-right: 10px;
             padding-top: 75px; 
@@ -155,8 +199,7 @@
             color: #5D4F51;
         }
 
-
-        /* social media click icons*/
+        /* social media icons */
         .social-icons {
             margin-top: 15px;
             text-align: right; 
@@ -168,8 +211,6 @@
             border-bottom: none;
             box-shadow: none;
             transition: opacity 0.3s ease;
-            
-            /* the margin to separate the inline images */
             margin-left: 35px; 
         }
 
@@ -188,7 +229,6 @@
             border-top: 1px solid #DDBDBE; 
         }
 
-        /* table footer layout*/
         .footer-table-wrapper {
             display: flex; 
             justify-content: center;
@@ -219,17 +259,8 @@
             white-space: nowrap;
         }
 
-        .footer-table a {
-            color: #655C5B;
-            text-decoration: none;
-            font-weight: 700;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
         .footer-table a:hover {
-            color: #816B6E;
-            border-bottom: 1px solid #816B6E;
+            color: #816B6E !important;
         }
 
         .copyright {
@@ -248,8 +279,19 @@
             <div class="logo">Cornelia Manda</div>
             <nav>
                 <ul>
-                     <li><a href="https://cornelia-manda.github.io/cornelia.manda/">Home</a></li>
+                    <li><a href="https://cornelia-manda.github.io/home/">Home</a></li>
                     <li><a href="https://cornelia-manda.github.io/portfolio/">Portfolio</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Projects</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Videography</a></li>
+                            <li><a href="#">Branding</a></li>
+                            <li><a href="#">Web and App</a></li>
+                            <li><a href="#">Graphic Design</a></li>
+                        </ul>
+                    </li>
+
                     <li><a href="https://cornelia-manda.github.io/contact-aboutme/">Contact</a></li>
                 </ul>
             </nav>
