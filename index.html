@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornelia Manda | Portfolio | Contact & About</title>
+    <!-- Made by: Cornelia Manda, December 10th, 2025 for GBDA228--> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* global reset & typography */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            font-size: 16px; /* base size */
+            color: #333;
+            background-color: #E0E2DF;
+            line-height: 1.6; 
+        }
+
+        h1, h2, h3, a, th {
+            font-family: "Playfair Display", serif;
+        }
+
+        /* container for layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto; 
+            padding: 0;
+            background-color: #E0E2DF;
+            min-height: 100vh;
+        }
+
+        /* nav system  */
+        header {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            align-items: center;
+            background-color: #DDBDBE;
+            padding: 17px 60px;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            color: #655C5B;
+        }
+
+        nav ul {
+            list-style: none; 
+            padding: 0;
+            margin: 0;
+            text-align: right;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-left: 40px;
+        }
+
+        nav a {
+            text-decoration: none; 
+            color: #655C5B; 
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: white; 
+        }
+
+        nav li:nth-child(3) a {
+            color: white; 
+        }
+
+        /* main content grid for the two column layout */
+    
+        #about-grid {
+            display: grid;
+            grid-template-columns: 42% 58%; /* i know it's not 50/50, but i feel theres a little more dimension */
+            gap: 35px; 
+            padding: 60px 80px;
+            align-items: start; 
+        }
+       
+        #about-grid > .text-container {
+            order: -1; 
+        }
+        
+        #about-grid > .image-container {
+            order: 1; 
+        }
+      
+      /*I did it backwards and was wondering if there was a way to just swap, and there was! I asked claude to explain it to me*/
+
+        /* image */
+        .image-container {
+            width: 100%;
+            position: relative; 
+            padding-right: 123px; 
+        }
+
+        /* style for the split headers */
+        .about-title {
+            font-size: 5em;
+            color: #816B6E;
+            margin: 0 0 10px 0; 
+            padding-left: 289px;
+            line-height: 1;
+            text-transform: uppercase;
+            text-align: right;
+        }
+
+        /* separate me heading */
+        .me-title {
+            position: absolute; 
+            right: 0; 
+            top: 110px; 
+            font-size: 5em;
+            color: #816B6E;
+            margin: 0;
+            line-height: 1;
+            text-transform: uppercase;
+            transform: rotate(90deg); 
+            transform-origin: center; 
+            white-space: nowrap;
+        }
+
+        .image-container img {
+            width: 100%;
+            display: block;
+            border-bottom: 10px solid #DDBDBE; 
+            box-shadow: 10px 10px 0px rgba(101, 92, 91, 0.2); 
+          /* the box shadow i think added more pazazz to the image, ties everything togethe, researched how to do the shadows where I used throughout, quite life changing */
+        }
+
+        /* tect right column */
+        .text-container {
+            padding-right: 10px;
+            padding-top: 75px; 
+        }
+
+        .bio-text p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            color: #5D4F51;
+        }
+
+
+        /* social media click icons*/
+        .social-icons {
+            margin-top: 15px;
+            text-align: right; 
+        }
+
+        .social-icons img {
+            width: 100px;
+            height: auto;
+            border-bottom: none;
+            box-shadow: none;
+            transition: opacity 0.3s ease;
+            
+            /* the margin to separate the inline images */
+            margin-left: 35px; 
+        }
+
+        .social-icons img:hover {
+            opacity: 0.7; 
+            cursor: pointer;
+        }
+
+        /* footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 10px;
+            color: #655C5B;
+            font-size: 0.9em;
+            border-top: 1px solid #DDBDBE; 
+        }
+
+        /* table footer layout*/
+        .footer-table-wrapper {
+            display: flex; 
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-table {
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .footer-table th {
+            color: #816B6E;
+            font-size: 1.1em;
+            padding: 5px 10px 5px 0;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .footer-table th:not(:first-child) {
+            padding-left: 30px; 
+        }
+
+        .footer-table td {
+            padding: 5px 0;
+            font-family: "Roboto", sans-serif;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .footer-table a {
+            color: #655C5B;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .footer-table a:hover {
+            color: #816B6E;
+            border-bottom: 1px solid #816B6E;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            opacity: 0.8;
+            font-size: 0.8em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <div class="logo">Cornelia Manda</div>
+            <nav>
+                <ul>
+                    <li><a href="https://cornelia-manda.github.io/a3-manda_cornelia/">Home</a></li>
+                    <li><a href="https://cornelia-manda.github.io/a3-manda_cornelia-portfolio/">Portfolio</a></li>
+                    <li><a href="https://cornelia-manda.github.io/asn3-cornelia_manda-contactpage/">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="about-grid">
+            
+            <div class="image-container">
+                <h1 class="about-title">ABOUT</h1>
+
+                <img src="contactphoto.jpeg" alt="Portrait of Cornelia Manda photographing outdoors">
+                
+                <h1 class="me-title">ME</h1>
+            </div>
+
+            <div class="text-container">
+                
+                <div class="bio-text">
+                    <p>
+                        Hi, I'm Cornelia, a photographer and <strong>Global Business & Digital Arts (GBDA)</strong> student at the University of Waterloo.
+                    </p>
+                    <p>
+                        My passion for photography and digital creation is rooted in the belief that a photograph and project is a timeless memory. I specialize and love capturing life's most authentic moments, focusing on preserving memories filled with genuine emotion and connection that can be cherished for years to come.
+                    </p>
+                    <p>
+                        As a GBDA student, I bring a unique blend of artistic vision and digital proficiency to every project. For me, documenting these moments whether for clients or for my personal projects is a continuous, emotional journey.
+                    </p>
+                    <p>
+                        I thrive on the positive energy of others. When I converse with and capture someone's happiness, that energy and kindness inherently radiates into my own work, creating a joyful and collaborative experience for everyone involved.
+                    </p>
+                </div>
+
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/cornelia.manda/" target="_blank">
+                        <img src="instagram.jpg" alt="Instagram Profile">
+                    </a>
+                    <a href="https://www.linkedin.com/in/cornelia-manda-596b21286/" target="_blank">
+                        <img src="linkedin.png" alt="LinkedIn Profile">
+                    </a>
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer>
+            <div class="footer-table-wrapper">
+                <table class="footer-table">
+                    <tr>
+                        <th>Email:</th>
+                        <td><a href="mailto:cmanda@uwaterloo.ca">cmanda@uwaterloo.ca</a></td>
+                        
+                        <th>School:</th>
+                        <td><a href="https://uwaterloo.ca/stratford-school-of-interaction-design-and-business/global-business-and-digital-arts" target="_blank">University of Waterloo</a></td>
+                        
+                        <th>Location:</th>
+                        <td>Kitchener-Waterloo, Ontario</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p class="copyright">&copy; 2026 Cornelia Manda. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
